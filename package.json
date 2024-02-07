@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Vivekx007/mern-blogApp#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "mongoose": "^8.1.1",
