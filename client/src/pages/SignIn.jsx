@@ -7,6 +7,7 @@ import {
   signInSuccess,
   signInFailure,
 } from "../redux/user/userSlice";
+import OAuth from "../components/OAuth";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({});
@@ -26,8 +27,7 @@ const SignIn = () => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
       // setError("All fields are required");
-      dispatch(signInFailure("All fields are required"));
-      return;
+      return dispatch(signInFailure("All fields are required"));
     }
     try {
       // setLoading(true);
@@ -47,7 +47,7 @@ const SignIn = () => {
           dispatch(signInFailure(data.message));
           // setLoading(false); // Stop the spinner
         }, 1000);
-        return;
+        // return;
       }
       // setLoading(false);
       if (res.ok) {
@@ -106,11 +106,13 @@ const SignIn = () => {
                 <>
                   <Spinner size="sm" />
                   <span className="pl-3">Loading...</span>
+                  {console.log("Loading...", loading)}
                 </>
               ) : (
                 "Sign In"
               )}
             </Button>
+            <OAuth />
           </form>
           <div className="flex gap-2 text-sm mt-5">
             <span>Don't Have an account?</span>
@@ -123,6 +125,7 @@ const SignIn = () => {
             // Show error message
             error && (
               <Alert className="mt-5" color="failure">
+                {console.log("Error", error)}
                 {error}
               </Alert>
             )
@@ -132,4 +135,5 @@ const SignIn = () => {
     </div>
   );
 };
+
 export default SignIn;
