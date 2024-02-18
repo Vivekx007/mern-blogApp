@@ -22,6 +22,7 @@ import {
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import app from "../firebase";
 
 const DashProfile = () => {
   const { currentUser, error, loading } = useSelector((state) => state.user);
