@@ -232,7 +232,7 @@ const DashProfile = () => {
           outline
           disabled={loading || imageFileUploading}
         >
-          {loading ? "Loading..." : "Update"}
+          {loading || imageFileUploading ? "Loading..." : "Update"}
         </Button>
         {currentUser.isAdmin && (
           <Link to="/create-post">
