@@ -5,6 +5,9 @@ export const test = (req, res) => {
   res.json({ message: "Api is working!" });
 };
 
+// @desc   Register a new user
+// @route  POST /api/users/register
+// @access Public
 export const updateUser = async (req, res, next) => {
   if (req.user.id !== req.params.userId) {
     return next(errorHandler(403, "You are not allowed to update this user"));
@@ -55,6 +58,9 @@ export const updateUser = async (req, res, next) => {
   }
 };
 
+// @desc   delete user
+// @route  DELETE /api/users/:userId
+// @access Private
 export const deleteUser = async (req, res, next) => {
   if (req.user.id !== req.params.userId) {
     return next(errorHandler(403, "You are not allowed to delete this user"));
