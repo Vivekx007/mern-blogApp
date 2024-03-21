@@ -73,6 +73,9 @@ export const deleteUser = async (req, res, next) => {
   }
 };
 
+// @desc   signout user
+// @route  GET /api/users/signout
+// @access Private
 export const signout = (req, res, next) => {
   try {
     res.clearCookie("access_token");
